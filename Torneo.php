@@ -73,9 +73,13 @@ class Torneo {
     }
   }
 
-  public function calcularPremioGanador($objPartido){
-    $equipoGanador = darGanadores();
-  }
+  public function calcularPremioPartido($OBJPartido){
+    $equipoGanador = $OBJPartido->darEquipoGanador();
+    $coefPartido = $OBJPartido->coeficientePartido();
+    $premio =($coefPartido* $this->getImportePremio());
+    $arregloAsoc = ['equipoGanador' => $equipoGanador, 'premioPartido'=> $premio];
+    return $arregloAsoc;
+}
 
   public function retornarCadena($arreglo){
     $cadena = "";
